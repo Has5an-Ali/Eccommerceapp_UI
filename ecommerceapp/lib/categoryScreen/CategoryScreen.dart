@@ -17,11 +17,11 @@ class categoryScreen extends StatelessWidget {
             title: topcat.text.fontFamily(bold).white.make(),
           ),
           body: Container(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: GridView.builder(
               shrinkWrap: true,
               itemCount: 12,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
@@ -32,7 +32,7 @@ class categoryScreen extends StatelessWidget {
                     Image.asset(
                       categoryimage[index],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     "${categorytitle[index]}"
                         .text
                         .fontFamily(bold)

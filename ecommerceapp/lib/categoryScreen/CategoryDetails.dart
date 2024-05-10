@@ -70,8 +70,9 @@ class categoryDetails extends StatelessWidget {
                         .white
                         .margin(const EdgeInsets.symmetric(horizontal: 4))
                         .rounded
-                        .make().onTap(() {
-                          Get.to(()=>itemDetails(title: "Dummy Iteam"));
+                        .make()
+                        .onTap(() {
+                      Get.to(() => itemDetails(title: "Dummy Iteam"));
                     });
                   },
                 ),
