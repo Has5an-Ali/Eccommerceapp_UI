@@ -1,28 +1,23 @@
 import 'package:ecommerceapp/conts/consts.dart';
 
-const  socialicon = [
+const socialicon = [
   icFacebookLogo,
   icGoogleLogo,
   icTwitterLogo,
-
-] ;
+];
 
 const sliderlist = [
-
   imgSlider1,
   imgSlider2,
   imgSlider3,
   imgSlider4,
-
 ];
 
 const Secondsliderlist = [
-
   imgSs1,
   imgSs2,
   imgSs3,
   imgSs4,
-
 ];
 
 const featureimage1 = [
@@ -38,7 +33,6 @@ const featureimage2 = [
 ];
 
 const featuretitle1 = [
-
   WDress,
   Gdress,
   BGlass,
@@ -59,23 +53,18 @@ const GrideImage = [
   imgPi4,
   imgPi5,
   imgP4,
-
-
 ];
 
-const featureproduct  = [
+const featureproduct = [
   imgP1,
   imgP2,
   imgP3,
   imgP4,
   imgP5,
   imgP6,
-
-
-
 ];
 
-const categoryimage =[
+const categoryimage = [
   imgFc1,
   imgFc2,
   imgFc3,
@@ -91,16 +80,18 @@ const categoryimage =[
 ];
 
 const categorytitle = [
-men ,
-laptop ,
-auto ,
-kid ,
-sport ,
-mobile  ,
-mak ,
-clean ,
-sofa ,
-Gshoes ,
-bag ,
-Bshoes ,
+  men,
+  laptop,
+  auto,
+  kid,
+  sport,
+  mobile,
+  mak,
+  clean,
+  sofa,
+  Gshoes,
+  bag,
+  Bshoes,
 ];
+
+const iconbtn = [video, review, seller, returnp, support];

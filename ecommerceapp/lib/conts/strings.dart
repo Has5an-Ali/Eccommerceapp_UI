@@ -23,7 +23,6 @@ const cat = 'Categories';
 const cart = "Cart";
 const account = 'Account';
 
-
 const search = "Search Anything...";
 const today = "TodayDeal";
 const flash = "FlashDeal";
@@ -41,19 +40,29 @@ const Phone = "Phone";
 const Tshirt = 'T shirt';
 const GWatch = 'Girls Watches';
 
-const featurep = "Feature Product" ;
+const featurep = "Feature Product";
 
 const men = "Men Dress",
     laptop = "Laptop",
-    auto = "Auto Mobile" ,
-    kid = "Kid Toys" ,
-    sport = "Sports" ,
+    auto = "Auto Mobile",
+    kid = "Kid Toys",
+    sport = "Sports",
     mobile = "Mobile ",
-    mak = "Fashion " ,
+    mak = "Fashion ",
     clean = "Cleaning ",
     sofa = "Sofa Set",
-    Gshoes = "Girls Shoes" ,
-    bag = "Girls Bags" ,
-    Bshoes = "Sports Shoes" ;
+    Gshoes = "Girls Shoes",
+    bag = "Girls Bags",
+    Bshoes = "Sports Shoes";
 
 const subcat = "Baby Cloths";
+
+//iteam button list
+
+const video = "Video",
+    review = "Review",
+    seller = "Seller Policy",
+    returnp = "Return Policy",
+    support = "Support Policy";
+
+const youmay = "Product you may also like ";

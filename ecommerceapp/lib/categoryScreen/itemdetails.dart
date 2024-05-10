@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/CommonWidgets/Buttons.dart';
+import 'package:ecommerceapp/CommonWidgets/socialList.dart';
 import 'package:ecommerceapp/conts/consts.dart';
 
 class itemDetails extends StatelessWidget {
@@ -168,10 +169,51 @@ class itemDetails extends StatelessWidget {
                     ListView(
                       shrinkWrap: true,
                       children: List.generate(
-                          5,
-                          (index) => Column(
-                                children: ["Video".text.make()],
+                          iconbtn.length,
+                          (index) => ListTile(
+                                title: iconbtn[index].text.make(),
+                                trailing: Icon(Icons.arrow_forward),
                               )),
+                    ),
+                    10.heightBox,
+                    youmay.text.color(darkFontGrey).fontFamily(semibold).make(),
+                    20.heightBox,
+
+                    //You may like product
+
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(
+                            6,
+                            (index) => Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                      Image.asset(
+                                        featureproduct[index],
+                                        width: 200,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      "Laptop 8GB/256GB"
+                                          .text
+                                          .fontFamily(semibold)
+                                          .color(darkFontGrey)
+                                          .make(),
+                                      "\$110"
+                                          .text
+                                          .color(redColor)
+                                          .size(18)
+                                          .fontFamily(bold)
+                                          .make()
+                                    ])
+                                    .box
+                                    .white
+                                    .margin(EdgeInsets.symmetric(horizontal: 4))
+                                    .roundedSM
+                                    .padding(EdgeInsets.all(8))
+                                    .make()),
+                      ),
                     )
                   ],
                 ),
