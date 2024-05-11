@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/CommonWidgets/common_bg.dart';
 import 'package:ecommerceapp/CommonWidgets/profilebtn.dart';
+import 'package:ecommerceapp/CommonWidgets/socialList.dart';
 import 'package:ecommerceapp/conts/consts.dart';
 import 'package:flutter/material.dart';
 
@@ -74,7 +75,26 @@ class accountScreen extends StatelessWidget {
                   title: "Your Order",
                   width: (context.screenWidth / 3.9))
             ],
-          )
+          ),
+          40.heightBox,
+          ListView.separated(
+            shrinkWrap: true,
+            separatorBuilder: (context, index) {
+              return const Divider(
+                color: lightGrey,
+              );
+            },
+            itemCount: profilebtn.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                leading: Image.asset(
+                  profileiconbtn[index],
+                  width: 22,
+                ),
+                title: profilebtn[index].text.make(),
+              );
+            },
+          ).box.white.rounded.padding(const EdgeInsets.all(16)).shadowSm.make()
         ],
       ),
     ))));

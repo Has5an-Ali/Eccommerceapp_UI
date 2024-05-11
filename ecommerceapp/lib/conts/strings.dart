@@ -66,3 +66,7 @@ const video = "Video",
     support = "Support Policy";
 
 const youmay = "Product you may also like ";
+
+//Profile String
+
+const wish = "My Wishlist", order = "My Order ", message = "Message";

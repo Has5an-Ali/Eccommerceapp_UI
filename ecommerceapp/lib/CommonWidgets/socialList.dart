@@ -95,3 +95,7 @@ const categorytitle = [
 ];
 
 const iconbtn = [video, review, seller, returnp, support];
+
+const profilebtn = [order, wish, message];
+
+const profileiconbtn = [icMessages, icOrder, icMessages];
