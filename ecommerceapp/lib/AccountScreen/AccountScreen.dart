@@ -12,12 +12,12 @@ class accountScreen extends StatelessWidget {
     return commonBackground(
         child: Scaffold(
             body: SafeArea(
-                child: Container(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: [
-          // Edit Profile
-          const Align(
+                child: Column(
+      children: [
+        // Edit Profile
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Align(
             alignment: Alignment.topRight,
             child: Icon(
               Icons.manage_accounts_outlined,
@@ -25,9 +25,12 @@ class accountScreen extends StatelessWidget {
               color: whiteColor,
             ),
           ),
+        ),
 
-          //Profile Image + Name + Logout Button
-          Row(
+        //Profile Image + Name + Logout Button
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
             children: [
               Image.asset(
                 imgProfile2,
@@ -58,45 +61,55 @@ class accountScreen extends StatelessWidget {
                       .make())
             ],
           ),
-          10.heightBox,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              details(
-                  counting: "00",
-                  title: "In Cart",
-                  width: (context.screenWidth / 3.9)),
-              details(
-                  counting: "52",
-                  title: "In Wishlist",
-                  width: (context.screenWidth / 3.9)),
-              details(
-                  counting: "502",
-                  title: "Your Order",
-                  width: (context.screenWidth / 3.9))
-            ],
-          ),
-          40.heightBox,
-          ListView.separated(
-            shrinkWrap: true,
-            separatorBuilder: (context, index) {
-              return const Divider(
-                color: lightGrey,
-              );
-            },
-            itemCount: profilebtn.length,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                leading: Image.asset(
-                  profileiconbtn[index],
-                  width: 22,
-                ),
-                title: profilebtn[index].text.make(),
-              );
-            },
-          ).box.white.rounded.padding(const EdgeInsets.all(16)).shadowSm.make()
-        ],
-      ),
+        ),
+        10.heightBox,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            details(
+                counting: "00",
+                title: "In Cart",
+                width: (context.screenWidth / 3.9)),
+            details(
+                counting: "52",
+                title: "In Wishlist",
+                width: (context.screenWidth / 3.9)),
+            details(
+                counting: "502",
+                title: "Your Order",
+                width: (context.screenWidth / 3.9))
+          ],
+        ),
+
+        ListView.separated(
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return const Divider(
+              color: lightGrey,
+            );
+          },
+          itemCount: profilebtn.length,
+          itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              leading: Image.asset(
+                profileiconbtn[index],
+                width: 22,
+              ),
+              title: profilebtn[index].text.make(),
+            );
+          },
+        )
+            .box
+            .white
+            .rounded
+            .padding(const EdgeInsets.all(16))
+            .shadowSm
+            .margin(EdgeInsets.all(12))
+            .make()
+            .box
+            .color(redColor)
+            .make()
+      ],
     ))));
   }
 }
