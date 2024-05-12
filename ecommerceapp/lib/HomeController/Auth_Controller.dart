@@ -2,6 +2,11 @@ import 'package:ecommerceapp/conts/consts.dart';
 import 'package:get/get.dart';
 
 class authController extends GetxController {
+  // Loading
+
+  var isloading = false.obs;
+
+  // Text Controller for login
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 // Registration Method
@@ -47,6 +52,7 @@ class authController extends GetxController {
       'Name': name,
       'Email': email,
       'Password': password,
+      'id': currentUser!.uid,
     });
   }
 
