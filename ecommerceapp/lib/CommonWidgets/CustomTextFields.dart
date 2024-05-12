@@ -1,11 +1,12 @@
 import 'package:ecommerceapp/conts/consts.dart';
 
-Widget customTextField({String? title, String? hint, controller}) {
+Widget customTextField({String? title, String? hint, controller, Ispass}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       title!.text.fontFamily(semibold).color(redColor).make(),
       TextFormField(
+        obscureText: Ispass,
         controller: controller,
         decoration: InputDecoration(
             isDense: true,
@@ -14,7 +15,7 @@ Widget customTextField({String? title, String? hint, controller}) {
             filled: true,
             fillColor: lightGrey,
             border: InputBorder.none,
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: redColor, width: 2))),
       )
     ],

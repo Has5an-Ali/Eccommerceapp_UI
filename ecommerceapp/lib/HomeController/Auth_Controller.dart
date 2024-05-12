@@ -2,6 +2,8 @@ import 'package:ecommerceapp/conts/consts.dart';
 import 'package:get/get.dart';
 
 class authController extends GetxController {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 // Registration Method
 
   Future<UserCredential?> signupmethod({
@@ -12,7 +14,7 @@ class authController extends GetxController {
     UserCredential? userCredential;
 
     try {
-      await auth.createUserWithEmailAndPassword(
+      userCredential = await auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
@@ -22,11 +24,14 @@ class authController extends GetxController {
 
 // User Sign
 
-  Future<UserCredential?> signinmethod({context, email, password}) async {
+  Future<UserCredential?> signinmethod({
+    context,
+  }) async {
     UserCredential? userCredential;
 
     try {
-      await auth.signInWithEmailAndPassword(email: email, password: password);
+      userCredential = await auth.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.toString());
     }
@@ -37,7 +42,7 @@ class authController extends GetxController {
 
   storeuserdata({name, email, password}) async {
     DocumentReference store =
-        firestore.collection(userCollection).doc(currentUser!.uid);
+        await firestore.collection(userCollection).doc(currentUser!.uid);
     store.set({
       'Name': name,
       'Email': email,

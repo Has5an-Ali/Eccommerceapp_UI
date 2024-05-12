@@ -40,17 +40,25 @@ class _signScreenState extends State<signScreen> {
             10.heightBox,
             Column(children: [
               customTextField(
-                  title: name, hint: namehint, controller: NameController),
+                  title: name,
+                  hint: namehint,
+                  controller: NameController,
+                  Ispass: false),
               customTextField(
-                  title: email, hint: emailHint, controller: EmailController),
+                  title: email,
+                  hint: emailHint,
+                  controller: EmailController,
+                  Ispass: false),
               customTextField(
                   title: password,
                   hint: PasswordHint,
-                  controller: PasswordController),
+                  controller: PasswordController,
+                  Ispass: true),
               customTextField(
                   title: retypepass,
                   hint: PasswordHint,
-                  controller: RetypePasswordController),
+                  controller: RetypePasswordController,
+                  Ispass: true),
               10.heightBox,
               Row(
                 children: [
@@ -95,16 +103,16 @@ class _signScreenState extends State<signScreen> {
                       try {
                         await Controller.signupmethod(
                                 context: context,
-                                email: EmailController,
-                                password: PasswordController)
+                                email: EmailController.text,
+                                password: PasswordController.text)
                             .then((value) {
                           return Controller.storeuserdata(
-                              email: EmailController,
-                              password: PasswordController,
-                              name: NameController);
+                              email: EmailController.text,
+                              password: PasswordController.text,
+                              name: NameController.text);
                         }).then((value) {
                           VxToast.show(context, msg: userlogin);
-                          Get.offAll(Home());
+                          Get.offAll(() => Home());
                         });
                       } catch (e) {
                         auth.signOut();

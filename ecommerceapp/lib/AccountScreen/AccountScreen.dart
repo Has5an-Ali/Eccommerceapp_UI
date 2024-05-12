@@ -1,8 +1,11 @@
+import 'package:ecommerceapp/Auth_Screen/LoginScreen.dart';
 import 'package:ecommerceapp/CommonWidgets/common_bg.dart';
 import 'package:ecommerceapp/CommonWidgets/profilebtn.dart';
 import 'package:ecommerceapp/CommonWidgets/socialList.dart';
+import 'package:ecommerceapp/HomeController/Auth_Controller.dart';
 import 'package:ecommerceapp/conts/consts.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class accountScreen extends StatelessWidget {
   const accountScreen({super.key});
@@ -53,7 +56,10 @@ class accountScreen extends StatelessWidget {
                       ),
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.zero)),
-                  onPressed: () {},
+                  onPressed: () async {
+                    await Get.put(authController()).usersignoutMethod();
+                    Get.offAll(() => loginScreen());
+                  },
                   child: "Logout"
                       .text
                       .color(whiteColor)
