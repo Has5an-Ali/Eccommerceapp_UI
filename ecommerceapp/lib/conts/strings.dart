@@ -18,6 +18,8 @@ const term = "Terms & Condition ";
 const privacy = "Privacy Policy ";
 const already = "Login Here";
 
+const userlogin = "Log in Successfully!";
+
 const home = "Home";
 const cat = 'Categories';
 const cart = "Cart";
