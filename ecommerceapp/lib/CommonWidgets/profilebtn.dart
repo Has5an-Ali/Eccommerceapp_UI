@@ -8,5 +8,5 @@ Widget details({width, String? counting, String? title}) {
       counting!.text.color(darkFontGrey).fontFamily(semibold).make(),
       title!.text.color(darkFontGrey).fontFamily(semibold).make(),
     ],
-  ).box.white.rounded.height(65).width(width).padding(EdgeInsets.all(4)).make();
+  ).box.white.rounded.height(55).width(width).padding(EdgeInsets.all(4)).make();
 }

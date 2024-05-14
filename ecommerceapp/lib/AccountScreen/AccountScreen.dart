@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/AccountScreen/EditaccountSection.dart';
 import 'package:ecommerceapp/Auth_Screen/LoginScreen.dart';
 import 'package:ecommerceapp/CommonWidgets/common_bg.dart';
 import 'package:ecommerceapp/CommonWidgets/profilebtn.dart';
@@ -18,14 +19,19 @@ class accountScreen extends StatelessWidget {
                 child: Column(
       children: [
         // Edit Profile
-        const Padding(
-          padding: EdgeInsets.all(8.0),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Align(
             alignment: Alignment.topRight,
-            child: Icon(
-              Icons.manage_accounts_outlined,
-              size: 28,
-              color: whiteColor,
+            child: IconButton(
+              onPressed: () {
+                Get.to(() => const EditScreen());
+              },
+              icon: const Icon(
+                Icons.manage_accounts_outlined,
+                size: 28,
+                color: whiteColor,
+              ),
             ),
           ),
         ),
@@ -58,7 +64,7 @@ class accountScreen extends StatelessWidget {
                           borderRadius: BorderRadius.zero)),
                   onPressed: () async {
                     await Get.put(authController()).usersignoutMethod();
-                    Get.offAll(() => loginScreen());
+                    Get.offAll(() => const loginScreen());
                   },
                   child: "Logout"
                       .text
@@ -68,7 +74,7 @@ class accountScreen extends StatelessWidget {
             ],
           ),
         ),
-        10.heightBox,
+
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -110,7 +116,7 @@ class accountScreen extends StatelessWidget {
             .rounded
             .padding(const EdgeInsets.all(16))
             .shadowSm
-            .margin(EdgeInsets.all(12))
+            .margin(const EdgeInsets.all(12))
             .make()
             .box
             .color(redColor)
