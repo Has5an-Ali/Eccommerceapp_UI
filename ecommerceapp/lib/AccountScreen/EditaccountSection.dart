@@ -8,12 +8,17 @@ import 'package:ecommerceapp/conts/consts.dart';
 import 'package:get/get.dart';
 
 class EditScreen extends StatelessWidget {
-  const EditScreen({super.key});
+  final dynamic data;
+
+  EditScreen({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(profileController());
-    Get.find<profileController>();
+    var controller = Get.put(ProfileController());
+
+    // Textfiled data
+    // Get.find<profileController>();
+
     return commonBackground(
         child: Scaffold(
       appBar: AppBar(),
@@ -23,14 +28,14 @@ class EditScreen extends StatelessWidget {
           () => Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              controller.profileimagepath.isEmpty
+              controller.profileImagePath.isEmpty
                   ? Image.asset(
                       imgProfile2,
                       width: 110,
                       fit: BoxFit.cover,
                     ).box.roundedFull.clip(Clip.antiAlias).make()
                   : Image.file(
-                      File(controller.profileimagepath.value),
+                      File(controller.profileImagePath.value),
                       width: 110,
                       fit: BoxFit.cover,
                     ).box.roundedFull.clip(Clip.antiAlias).make(),
@@ -39,23 +44,41 @@ class EditScreen extends StatelessWidget {
                   title: 'ChangeImage',
                   color: redColor,
                   onPress: () {
-                    controller.changeimagepath(context);
+                    controller.changeImagePath(context);
                   },
                   textColor: whiteColor),
               20.heightBox,
-              customTextField(hint: namehint, Ispass: false, title: name),
+              customTextField(
+                  controller: controller.nameController,
+                  hint: namehint,
+                  Ispass: false,
+                  title: name),
               10.heightBox,
               customTextField(
-                  hint: PasswordHint, Ispass: true, title: password),
+                  controller: controller.passController,
+                  hint: PasswordHint,
+                  Ispass: true,
+                  title: password),
               30.heightBox,
-              SizedBox(
-                width: context.screenWidth - 70,
-                child: ourButtons(
-                    title: 'Save',
-                    color: redColor,
-                    onPress: () {},
-                    textColor: whiteColor),
-              ),
+              controller.isLoading.value
+                  ? const CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation(redColor),
+                    )
+                  : SizedBox(
+                      width: context.screenWidth - 70,
+                      child: ourButtons(
+                          title: 'Save',
+                          color: redColor,
+                          onPress: () async {
+                            await controller.imageUpload();
+                            await controller.updateProfile(
+                                imgUrl: controller.profileImageLink,
+                                name: controller.nameController.text,
+                                password: controller.passController.text);
+                            VxToast.show(context, msg: "ProfileUpdated!");
+                          },
+                          textColor: whiteColor),
+                    ),
             ],
           )
               .box
